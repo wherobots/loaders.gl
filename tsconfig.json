@@ -91,6 +91,8 @@
       "@loaders.gl/potree/test": ["modules/potree/test"],
       "@loaders.gl/shapefile": ["modules/shapefile/src"],
       "@loaders.gl/shapefile/test": ["modules/shapefile/test"],
+      "@loaders.gl/s3": ["modules/s3/src"],
+      "@loaders.gl/s3/test": ["modules/s3/test"],
       "@loaders.gl/tiles": ["modules/tiles/src"],
       "@loaders.gl/tiles/test": ["modules/tiles/test"],
       "@loaders.gl/tile-converter": ["modules/tile-converter/src"],

@@ -17,6 +17,10 @@ export function isDataURL(url: string): boolean {
   return url.startsWith('data:');
 }
 
+export function isS3URL(url: string): boolean {
+  return url.startsWith('s3:');
+}
+
 /**
  * fetch API compatible function
  * - Supports fetching from Node.js local file system paths
@@ -37,6 +41,15 @@ export async function fetchFile(
       // throw new Error(
       //   'fetchFile: globalThis.loaders.fetchNode not defined. Install @loaders.gl/polyfills'
       // );
+    }
+
+    if (isS3URL(url)) {
+      if (globalThis.loaders?.fetchS3) {
+        return globalThis.loaders?.fetchS3(url, fetchOptions);
+      }
+      throw new Error(
+        'fetchFile: globalThis.loaders.fetchS3 not defined. Install @loaders.gl/s3'
+      );
     }
 
     // Call global fetch
